@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Weather</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch/dist/algoliasearchLite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <nav 
+    class="navbar navbar-dark navbar-expand-lg bg-primary m-0 p-0 justify-content-between">
+    <a class="navbar-brand" href="main.html">
+        <img src="Resources\Logo2.png" width=200px height= 50px class="d-inline-block align-top" alt="">
+
+    </a>
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+            </li>
+           
+
+           
+            <main>
+                <section class="contactus-section">
+                    <form onsubmit="sendEmail(); reset(); return false;" class="center-form">
+                        <div class="form-group">
+                            <input type="text" id="name" class="form-control" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" class="form-control" placeholder="Your email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="phone" id="phone" class="form-control" placeholder="Your phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" class="form-control" rows="4" placeholder="How can we help you?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                </section>
+            </main>
+            
+            <script src="https://smtpjs.com/v3/smtp.js"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            <script>
+                function sendEmail() {
+        Email.send({
+                                    To: 'denis.kirpichenko@ue-germany.com',
+                        From: document.getElementById("email").value,
+                          Subject: "New contact form enquiry ",
+                      Body: "Name: " + document.getElementById("name").value +
+                            "<br> Email: " + document.getElementById("email").value +
+                            "<br> Phone no: " + document.getElementById("phone").value +
+                            "<br> Message: " + document.getElementById("message").value
+                    }).then(
+                        message => alert("Message sent successfully!")
+                    );
+                }
+                    </script>
